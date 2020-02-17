@@ -1,0 +1,11 @@
+version: '2'
+services:
+  ciadmin-postgresql:
+    image: postgres:12.1
+    # volumes:
+    #     - ~/volumes/jhipster/ciadmin/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=ciadmin
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432
