@@ -42,6 +42,10 @@ public class CacheConfiguration {
             createCache(cm, ru.ciadmin.domain.User.class.getName());
             createCache(cm, ru.ciadmin.domain.Authority.class.getName());
             createCache(cm, ru.ciadmin.domain.User.class.getName() + ".authorities");
+            createCache(cm, ru.ciadmin.domain.CIRuleGroup.class.getName());
+            createCache(cm, ru.ciadmin.domain.CIRuleGroup.class.getName() + ".contains");
+            createCache(cm, ru.ciadmin.domain.CIRule.class.getName());
+            createCache(cm, ru.ciadmin.domain.CIBuild.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

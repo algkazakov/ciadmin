@@ -1,0 +1,44 @@
+{
+    "name": "CIRule",
+    "fields": [
+        {
+            "fieldName": "ruleName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "critical",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "useInReport",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "useInMicroservice",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "modifyDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "cIRuleGroup",
+            "otherEntityRelationshipName": "contains",
+            "relationshipName": "cIRuleGroup",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200218124600",
+    "entityTableName": "cireportrules",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

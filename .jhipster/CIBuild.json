@@ -1,0 +1,44 @@
+{
+    "name": "CIBuild",
+    "fields": [
+        {
+            "fieldName": "moduleName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "moduleVersion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "branch",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ciResult",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sonarResult",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "buildDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "sonarProject",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200218124700",
+    "entityTableName": "ci_build",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

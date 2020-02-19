@@ -1,0 +1,46 @@
+entity CIRuleGroup (cireportgrouprules) {
+	ruleGroupName String,
+    critical Boolean,
+    type String
+}
+
+entity CIRule (cireportrules) {
+	ruleName String,
+    critical Boolean,
+    useInReport Boolean,
+    useInMicroservice Boolean,
+    modifyDate Instant
+}
+
+entity CIBuild {
+	moduleName String,
+	moduleVersion String,
+	branch String,
+	ciResult String,
+    sonarResult String,
+    ciResult String,
+    buildDate ZonedDateTime,
+    sonarProject String
+}
+
+//enum Language {
+//    FRENCH, ENGLISH, SPANISH
+//}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	CIRuleGroup{contains} to CIRule
+}
+
+// Set pagination options
+paginate CIRuleGroup with infinite-scroll
+paginate CIRule with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except CIRuleGroup, CIRule
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

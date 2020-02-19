@@ -1,0 +1,25 @@
+{
+  "ciadminApp": {
+    "cIRuleGroup": {
+      "home": {
+        "title": "CI Rule Groups",
+        "createLabel": "Create a new CI Rule Group",
+        "createOrEditLabel": "Create or edit a CI Rule Group",
+        "notFound": "No CI Rule Groups found"
+      },
+      "created": "A new CI Rule Group is created with identifier {{ param }}",
+      "updated": "A CI Rule Group is updated with identifier {{ param }}",
+      "deleted": "A CI Rule Group is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete CI Rule Group {{ id }}?"
+      },
+      "detail": {
+        "title": "CI Rule Group"
+      },
+      "ruleGroupName": "Rule Group Name",
+      "critical": "Critical",
+      "type": "Type",
+      "contains": "Contains"
+    }
+  }
+}

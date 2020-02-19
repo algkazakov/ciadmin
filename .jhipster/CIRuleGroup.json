@@ -1,0 +1,35 @@
+{
+    "name": "CIRuleGroup",
+    "fields": [
+        {
+            "fieldName": "ruleGroupName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "critical",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "cIRule",
+            "otherEntityRelationshipName": "cIRuleGroup",
+            "relationshipName": "contains"
+        }
+    ],
+    "changelogDate": "20200218124500",
+    "entityTableName": "cireportgrouprules",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

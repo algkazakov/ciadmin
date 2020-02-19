@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cIBuild">
+            <h2><span jhiTranslate="ciadminApp.cIBuild.detail.title">CI Build</span> {{ cIBuild.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ciadminApp.cIBuild.moduleName">Module Name</span></dt>
+                <dd>
+                    <span>{{ cIBuild.moduleName }}</span>
+                </dd>
+                <dt><span jhiTranslate="ciadminApp.cIBuild.moduleVersion">Module Version</span></dt>
+                <dd>
+                    <span>{{ cIBuild.moduleVersion }}</span>
+                </dd>
+                <dt><span jhiTranslate="ciadminApp.cIBuild.branch">Branch</span></dt>
+                <dd>
+                    <span>{{ cIBuild.branch }}</span>
+                </dd>
+                <dt><span jhiTranslate="ciadminApp.cIBuild.ciResult">Ci Result</span></dt>
+                <dd>
+                    <span>{{ cIBuild.ciResult }}</span>
+                </dd>
+                <dt><span jhiTranslate="ciadminApp.cIBuild.sonarResult">Sonar Result</span></dt>
+                <dd>
+                    <span>{{ cIBuild.sonarResult }}</span>
+                </dd>
+                <dt><span jhiTranslate="ciadminApp.cIBuild.buildDate">Build Date</span></dt>
+                <dd>
+                    <span>{{ cIBuild.buildDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="ciadminApp.cIBuild.sonarProject">Sonar Project</span></dt>
+                <dd>
+                    <span>{{ cIBuild.sonarProject }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ci-build', cIBuild.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

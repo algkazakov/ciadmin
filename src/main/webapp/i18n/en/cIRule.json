@@ -1,0 +1,27 @@
+{
+  "ciadminApp": {
+    "cIRule": {
+      "home": {
+        "title": "CI Rules",
+        "createLabel": "Create a new CI Rule",
+        "createOrEditLabel": "Create or edit a CI Rule",
+        "notFound": "No CI Rules found"
+      },
+      "created": "A new CI Rule is created with identifier {{ param }}",
+      "updated": "A CI Rule is updated with identifier {{ param }}",
+      "deleted": "A CI Rule is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete CI Rule {{ id }}?"
+      },
+      "detail": {
+        "title": "CI Rule"
+      },
+      "ruleName": "Rule Name",
+      "critical": "Critical",
+      "useInReport": "Use In Report",
+      "useInMicroservice": "Use In Microservice",
+      "modifyDate": "Modify Date",
+      "cIRuleGroup": "CI Rule Group"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ciadminApp.cIRule.home.title">CI Rules</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ci-rule" [routerLink]="['/ci-rule/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="ciadminApp.cIRule.home.createLabel">
+            Create a new CI Rule
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="cIRules?.length === 0">
+        <span jhiTranslate="ciadminApp.cIRule.home.notFound">No cIRules found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="cIRules?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ruleName"><span jhiTranslate="ciadminApp.cIRule.ruleName">Rule Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="critical"><span jhiTranslate="ciadminApp.cIRule.critical">Critical</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="useInReport"><span jhiTranslate="ciadminApp.cIRule.useInReport">Use In Report</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="useInMicroservice"><span jhiTranslate="ciadminApp.cIRule.useInMicroservice">Use In Microservice</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="modifyDate"><span jhiTranslate="ciadminApp.cIRule.modifyDate">Modify Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cIRuleGroupId"><span jhiTranslate="ciadminApp.cIRule.cIRuleGroup">C I Rule Group</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cIRule of cIRules ;trackBy: trackId">
+                    <td><a [routerLink]="['/ci-rule', cIRule.id, 'view']">{{ cIRule.id }}</a></td>
+                    <td>{{ cIRule.ruleName }}</td>
+                    <td>{{ cIRule.critical }}</td>
+                    <td>{{ cIRule.useInReport }}</td>
+                    <td>{{ cIRule.useInMicroservice }}</td>
+                    <td>{{ cIRule.modifyDate | date:'medium' }}</td>
+                    <td>
+                        <div *ngIf="cIRule.cIRuleGroupId">
+                            <a [routerLink]="['/ci-rule-group', cIRule.cIRuleGroupId , 'view']" >{{ cIRule.cIRuleGroupId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/ci-rule', cIRule.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/ci-rule', cIRule.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(cIRule)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="cIRules?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

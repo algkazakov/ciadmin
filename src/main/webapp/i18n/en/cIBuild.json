@@ -1,0 +1,28 @@
+{
+  "ciadminApp": {
+    "cIBuild": {
+      "home": {
+        "title": "CI Builds",
+        "createLabel": "Create a new CI Build",
+        "createOrEditLabel": "Create or edit a CI Build",
+        "notFound": "No CI Builds found"
+      },
+      "created": "A new CI Build is created with identifier {{ param }}",
+      "updated": "A CI Build is updated with identifier {{ param }}",
+      "deleted": "A CI Build is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete CI Build {{ id }}?"
+      },
+      "detail": {
+        "title": "CI Build"
+      },
+      "moduleName": "Module Name",
+      "moduleVersion": "Module Version",
+      "branch": "Branch",
+      "ciResult": "Ci Result",
+      "sonarResult": "Sonar Result",
+      "buildDate": "Build Date",
+      "sonarProject": "Sonar Project"
+    }
+  }
+}

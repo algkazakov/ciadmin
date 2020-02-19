@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cIRule">
+            <h2><span jhiTranslate="ciadminApp.cIRule.detail.title">CI Rule</span> {{ cIRule.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ciadminApp.cIRule.ruleName">Rule Name</span></dt>
+                <dd>
+                    <span>{{ cIRule.ruleName }}</span>
+                </dd>
+                <dt><span jhiTranslate="ciadminApp.cIRule.critical">Critical</span></dt>
+                <dd>
+                    <span>{{ cIRule.critical }}</span>
+                </dd>
+                <dt><span jhiTranslate="ciadminApp.cIRule.useInReport">Use In Report</span></dt>
+                <dd>
+                    <span>{{ cIRule.useInReport }}</span>
+                </dd>
+                <dt><span jhiTranslate="ciadminApp.cIRule.useInMicroservice">Use In Microservice</span></dt>
+                <dd>
+                    <span>{{ cIRule.useInMicroservice }}</span>
+                </dd>
+                <dt><span jhiTranslate="ciadminApp.cIRule.modifyDate">Modify Date</span></dt>
+                <dd>
+                    <span>{{ cIRule.modifyDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="ciadminApp.cIRule.cIRuleGroup">C I Rule Group</span></dt>
+                <dd>
+                    <div *ngIf="cIRule.cIRuleGroupId">
+                        <a [routerLink]="['/ci-rule-group', cIRule.cIRuleGroupId, 'view']">{{ cIRule.cIRuleGroupId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ci-rule', cIRule.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
