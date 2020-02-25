@@ -1,5 +1,8 @@
 package ru.ciadmin.service.dto;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.Instant;
 import java.io.Serializable;
 import java.util.Objects;
@@ -13,14 +16,32 @@ public class CIRuleDTO implements Serializable {
 
     private String ruleName;
 
+    public CIRuleDTO() {}
+
     private Boolean critical;
 
     private Boolean useInReport;
 
+    @JsonCreator
+    public CIRuleDTO(@JsonProperty("id") Long id,
+                     @JsonProperty("ruleName") String ruleName,
+                     @JsonProperty("critical") Boolean critical,
+                     @JsonProperty("useInReport") Boolean useInReport,
+                     @JsonProperty("useInMicroservice") Boolean useInMicroservice,
+                     @JsonProperty("modifyDate") Instant modifyDate,
+                     @JsonProperty("cIRuleGroupId") Long cIRuleGroupId) {
+        this.id = id;
+        this.ruleName = ruleName;
+        this.critical = critical;
+        this.useInReport = useInReport;
+        this.useInMicroservice = useInMicroservice;
+        this.modifyDate = modifyDate;
+        this.cIRuleGroupId = cIRuleGroupId;
+    }
+
     private Boolean useInMicroservice;
 
     private Instant modifyDate;
-
 
     private Long cIRuleGroupId;
 

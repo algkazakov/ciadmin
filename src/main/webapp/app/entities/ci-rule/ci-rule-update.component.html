@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="ciadminApp.cIRule.cIRuleGroup" for="field_cIRuleGroup">C I Rule Group</label>
+                    <label class="form-control-label" jhiTranslate="ciadminApp.cIRule.cIRuleGroup" for="field_cIRuleGroup">CI Rule Group</label>
                     <select class="form-control" id="field_cIRuleGroup" name="cIRuleGroup" formControlName="cIRuleGroupId">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="cIRuleGroupOption.id" *ngFor="let cIRuleGroupOption of cirulegroups; trackBy: trackById">{{ cIRuleGroupOption.ruleGroupName }}</option>
