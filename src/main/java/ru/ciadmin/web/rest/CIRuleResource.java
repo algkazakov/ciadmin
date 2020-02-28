@@ -1,5 +1,6 @@
 package ru.ciadmin.web.rest;
 
+import org.springframework.security.access.annotation.Secured;
 import ru.ciadmin.service.CIRuleService;
 import ru.ciadmin.web.rest.errors.BadRequestAlertException;
 import ru.ciadmin.service.dto.CIRuleDTO;
@@ -51,6 +52,7 @@ public class CIRuleResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/ci-rules")
+    @Secured("ROLE_ADMIN")
     public ResponseEntity<CIRuleDTO> createCIRule(@RequestBody CIRuleDTO cIRuleDTO) throws URISyntaxException {
         log.debug("REST request to save CIRule : {}", cIRuleDTO);
         if (cIRuleDTO.getId() != null) {
@@ -72,6 +74,7 @@ public class CIRuleResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/ci-rules")
+    @Secured("ROLE_ADMIN")
     public ResponseEntity<CIRuleDTO> updateCIRule(@RequestBody CIRuleDTO cIRuleDTO) throws URISyntaxException {
         log.debug("REST request to update CIRule : {}", cIRuleDTO);
         if (cIRuleDTO.getId() == null) {
@@ -117,6 +120,7 @@ public class CIRuleResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/ci-rules/{id}")
+    @Secured("ROLE_ADMIN")
     public ResponseEntity<Void> deleteCIRule(@PathVariable Long id) {
         log.debug("REST request to delete CIRule : {}", id);
         cIRuleService.delete(id);

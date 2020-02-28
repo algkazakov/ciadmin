@@ -44,18 +44,20 @@
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                             </button>
 
-                            <button type="submit"
-                                    [routerLink]="['/ci-rule-group', cIRuleGroup.id, 'edit']"
-                                    class="btn btn-primary btn-sm">
-                                <fa-icon icon="pencil-alt"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                            </button>
+                            <div *jhiHasAnyAuthority="'ROLE_ADMIN'" class="btn-group">
+                                <button type="submit"
+                                        [routerLink]="['/ci-rule-group', cIRuleGroup.id, 'edit']"
+                                        class="btn btn-primary btn-sm">
+                                    <fa-icon icon="pencil-alt"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                </button>
 
-                            <button type="submit" (click)="delete(cIRuleGroup)"
-                                    class="btn btn-danger btn-sm">
-                                <fa-icon icon="times"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                            </button>
+                                <button type="submit" (click)="delete(cIRuleGroup)"
+                                        class="btn btn-danger btn-sm">
+                                    <fa-icon icon="times"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                </button>
+                            </div>
                         </div>
                     </td>
                 </tr>

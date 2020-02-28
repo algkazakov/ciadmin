@@ -1,5 +1,6 @@
 package ru.ciadmin.web.rest;
 
+import org.springframework.security.access.annotation.Secured;
 import ru.ciadmin.service.CIRuleGroupService;
 import ru.ciadmin.web.rest.errors.BadRequestAlertException;
 import ru.ciadmin.service.dto.CIRuleGroupDTO;
@@ -51,6 +52,7 @@ public class CIRuleGroupResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/ci-rule-groups")
+    @Secured("ROLE_ADMIN")
     public ResponseEntity<CIRuleGroupDTO> createCIRuleGroup(@RequestBody CIRuleGroupDTO cIRuleGroupDTO) throws URISyntaxException {
         log.debug("REST request to save CIRuleGroup : {}", cIRuleGroupDTO);
         if (cIRuleGroupDTO.getId() != null) {
@@ -72,6 +74,7 @@ public class CIRuleGroupResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/ci-rule-groups")
+    @Secured("ROLE_ADMIN")
     public ResponseEntity<CIRuleGroupDTO> updateCIRuleGroup(@RequestBody CIRuleGroupDTO cIRuleGroupDTO) throws URISyntaxException {
         log.debug("REST request to update CIRuleGroup : {}", cIRuleGroupDTO);
         if (cIRuleGroupDTO.getId() == null) {
@@ -117,6 +120,7 @@ public class CIRuleGroupResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/ci-rule-groups/{id}")
+    @Secured("ROLE_ADMIN")
     public ResponseEntity<Void> deleteCIRuleGroup(@PathVariable Long id) {
         log.debug("REST request to delete CIRuleGroup : {}", id);
         cIRuleGroupService.delete(id);

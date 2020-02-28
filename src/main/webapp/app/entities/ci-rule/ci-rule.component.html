@@ -28,7 +28,7 @@
                     <th scope="col"  jhiSortBy="useInReport"><span jhiTranslate="ciadminApp.cIRule.useInReport">Use In Report</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="useInMicroservice"><span jhiTranslate="ciadminApp.cIRule.useInMicroservice">Use In Microservice</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="modifyDate"><span jhiTranslate="ciadminApp.cIRule.modifyDate">Modify Date</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="cIRuleGroupId"><span jhiTranslate="ciadminApp.cIRule.cIRuleGroup">C I Rule Group</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cIRuleGroupId"><span jhiTranslate="ciadminApp.cIRule.cIRuleGroup">CI Rule Group</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -54,18 +54,20 @@
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                             </button>
 
-                            <button type="submit"
-                                    [routerLink]="['/ci-rule', cIRule.id, 'edit']"
-                                    class="btn btn-primary btn-sm">
-                                <fa-icon icon="pencil-alt"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                            </button>
+                            <div *jhiHasAnyAuthority="'ROLE_ADMIN'" class="btn-group">
+                                <button type="submit"
+                                        [routerLink]="['/ci-rule', cIRule.id, 'edit']"
+                                        class="btn btn-primary btn-sm">
+                                    <fa-icon icon="pencil-alt"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                                </button>
 
-                            <button type="submit" (click)="delete(cIRule)"
-                                    class="btn btn-danger btn-sm">
-                                <fa-icon icon="times"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                            </button>
+                                <button type="submit" (click)="delete(cIRule)"
+                                        class="btn btn-danger btn-sm">
+                                    <fa-icon icon="times"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                                </button>
+                            </div>
                         </div>
                     </td>
                 </tr>

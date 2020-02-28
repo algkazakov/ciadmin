@@ -15,7 +15,7 @@ public interface CIRuleMapper extends EntityMapper<CIRuleDTO, CIRule> {
     @Mapping(source = "CIRuleGroup.id", target = "CIRuleGroupId")
     CIRuleDTO toDto(CIRule cIRule);
 
-    @Mapping(source = "CIRuleGroupId", target = "cIRuleGroup")
+    @Mapping(source = "CIRuleGroupId", target = "CIRuleGroup.id")
     CIRule toEntity(CIRuleDTO cIRuleDTO);
 
     default CIRule fromId(Long id) {
