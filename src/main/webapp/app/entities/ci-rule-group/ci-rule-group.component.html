@@ -2,12 +2,14 @@
     <h2 id="page-heading">
         <span jhiTranslate="ciadminApp.cIRuleGroup.home.title">CI Rule Groups</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ci-rule-group" [routerLink]="['/ci-rule-group/new']">
-            <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="ciadminApp.cIRuleGroup.home.createLabel">
-            Create a new CI Rule Group
-            </span>
-        </button>
+        <div *jhiHasAnyAuthority="'ROLE_ADMIN'" class="btn-group">
+            <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ci-rule-group" [routerLink]="['/ci-rule-group/new']">
+                <fa-icon icon="plus"></fa-icon>
+                <span  jhiTranslate="ciadminApp.cIRuleGroup.home.createLabel">
+                Create a new CI Rule Group
+                </span>
+            </button>
+        </div>
     </h2>
 
     <jhi-alert-error></jhi-alert-error>

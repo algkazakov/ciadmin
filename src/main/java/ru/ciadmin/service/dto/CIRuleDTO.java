@@ -12,15 +12,23 @@ import java.util.Objects;
  */
 public class CIRuleDTO implements Serializable {
 
+    @JsonProperty("id")
     private Long id;
-
+    @JsonProperty("ruleName")
     private String ruleName;
 
     public CIRuleDTO() {}
-
+    @JsonProperty("critical")
     private Boolean critical;
-
+    @JsonProperty("useInReport")
     private Boolean useInReport;
+    @JsonProperty("useInMicroservice")
+    private Boolean useInMicroservice;
+    @JsonProperty("modifyDate")
+    private Instant modifyDate;
+
+    @JsonProperty("cIRuleGroupId")
+    private Long cIRuleGroupId;
 
     @JsonCreator
     public CIRuleDTO(@JsonProperty("id") Long id,
@@ -38,12 +46,6 @@ public class CIRuleDTO implements Serializable {
         this.modifyDate = modifyDate;
         this.cIRuleGroupId = cIRuleGroupId;
     }
-
-    private Boolean useInMicroservice;
-
-    private Instant modifyDate;
-
-    private Long cIRuleGroupId;
 
     public Long getId() {
         return id;

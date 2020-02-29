@@ -33,9 +33,9 @@ spring:
       enabled: false
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/ciadmin
-    username: ciadmin
-    password:
+    url: jdbc:postgresql://ftpbdci:5432/postgress
+    username: postgreadmin
+    password: pass
     hikari:
       poolName: Hikari
       auto-commit: false
